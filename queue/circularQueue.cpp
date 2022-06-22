@@ -71,7 +71,7 @@ public:
         }
         else if (front == size - 1)
         {
-            front = 0; // incrment front to start
+            front = 0; // increment front to start
         }
         else
         {
@@ -91,7 +91,7 @@ int main()
     q.enqueue(4);
     q.enqueue(5);
     q.enqueue(6); // overflow
-    
+
     cout << q.top() << endl;
     q.dequeue();
     cout << q.top() << endl;

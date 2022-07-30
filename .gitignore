@@ -1,2 +1,4 @@
-*.out
+
 a.out
+*//DS_store
+*//*.out

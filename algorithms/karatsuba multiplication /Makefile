@@ -1,9 +1,0 @@
-compile: 
-	g++ -o main.out -O2 -Wall main.cpp
-	
-run:
-	./main.out
-automate:
-	./main.out < 12012202220100121121122102202101222011202010202111121100111 1001022201211010122210021212111022201 3
-clear: 
-	rm *.out

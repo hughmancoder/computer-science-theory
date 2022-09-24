@@ -9,12 +9,14 @@ class Node {
         Node *left, *right;
         int height; 
         int val;
-        // constructor
-        Node (int val):left(NULL), right(NULL), height(1), val(val){}
+        // default constructor
+        Node ():left(nullptr), right(nullptr), height(1), val(0){}
 };
+
 
 int height(Node *node);
 int getBalanceFactor(Node* node);
+Node* createNode();
 Node* rightRotate(Node *p);
 Node* leftRotate(Node *p);
 Node* insert(Node* node, int value);
@@ -54,7 +56,7 @@ void demo() {
 }
 
 int main() {
-    Node* root = NULL;
+    Node* root = nullptr;
     std::string str;
     std::getline(std::cin, str);
     std::istringstream ss(str);
@@ -64,7 +66,7 @@ int main() {
         if (s == "PRE") {
             // preorder(root, root);
             // std::cout << std::endl;
-            std::cout << "root value: " << root->val << std::endl;
+            // std::cout << "root value: " << root->val << std::endl;
             iterativePreorder(root);
             break;
         }
@@ -94,42 +96,45 @@ int main() {
     return 0;
 }
 
+Node* createNode(int val) {
+    Node* temp = new Node();
+    temp->val = val;
+    temp->left = nullptr;
+    temp->right = nullptr;
+    temp->height = 1;
+    return temp;
+}
+
 int height(Node *node)
 {
-    if (node == NULL)
+    if (node == nullptr)
         return 0;
     return node->height;
 }
 
-// left - right height
+// left - right = height
 int getBalanceFactor(Node* node) {
-    return node == NULL ? 0 : (height(node->left) - height(node->right));
+    return node == nullptr ? 0 : (height(node->left) - height(node->right));
 }
 
-// gets next largest node: smallest key greater than input node
-Node* getSuccessor(Node *node) {
-    Node* temp = node; // get copy so we don't directly modify node itself
-    if (temp->right) {
+// largest key smaller than input node
+Node* getPredecessor(Node *node) {
+    Node* temp = node;
+    while (temp->right != nullptr) {
         temp = temp->right;
-        while (temp->left) {
-            temp = temp->left;
-        }
     }
     return temp;
 }
 
+Node* leftRotate(Node* p){
+    Node* r = p->right;
+    Node* rl = r->left;
 
-Node *leftRotate(Node *p) {
-    Node *r = p->right;
-    Node *rl = r->left;
-
-    p->right = rl;
     r->left = p;
-    
-    // update heights of repositioned nodes
-    p->height = std::max(height(p->left), height(p->right) + 1);
-    r->height = std::max(height(r->left), height(r->right) + 1);
-    // r becomes the new parent
+    p->right = rl;
+
+    p->height = std::max(height(p->left), height(p->right)) + 1;
+    r->height = std::max(height(r->left), height(r->right)) + 1;
     return r;
 }
 
@@ -137,86 +142,153 @@ Node* rightRotate(Node *p) {
     Node *l = p->left;
     Node *lr = l->right;
 
-    p->left = lr;
     l->right = p;
+    p->left = lr;
     
     // update heights of repositioned nodes
-    p->height = std::max(height(p->left), height(p->right) + 1);
-    l->height = std::max(height(l->left), height(l->right) + 1);
+    p->height = std::max(height(p->left), height(p->right)) + 1;
+    l->height = std::max(height(l->left), height(l->right)) + 1;
     // l becomes the new parent
     return l;
 }
 
-Node *insert(Node *node, int value) {
-    if (node == NULL) {
-        return new Node(value);
+Node *insert(Node *root, int value) {
+    if (root == nullptr) {
+        return createNode(value);
     }
 
-    if(value < node->val) {
-        node->left = insert(node->left, value);
+    if(value < root ->val) {
+        root ->left = insert(root->left, value);
     }
-    else if(value > node->val) {
-        node->right = insert(node->right, value);
+    else if(value > root ->val) {
+        root ->right = insert(root->right, value);
     }
-    // value equal to root value so return node as equal keys are not allowed
-    else { 
-        return node;
+    else if(value == root ->val) { 
+        // value equal to root value so return root  as equal keys are not allowed
+        return root ;
     }
 
-    node->height = 1 + std::max(height(node->left), height(node->right));
-    int balance_factor = getBalanceFactor(node);
+    root ->height = 1 + std::max(height(root ->left), height(root ->right));
+    int balance_factor = getBalanceFactor(root);
     // left left case
-    if (balance_factor > 1 && value < node->left->val) {
-        return rightRotate(node);
+    if (balance_factor > 1 && value < root ->left->val) {
+        return rightRotate(root);
     }
     // right right case
-    if (balance_factor < -1 && value > node->right->val) {
-        return leftRotate(node);
+    if (balance_factor < -1 && value > root ->right->val) {
+        return leftRotate(root);
     }
     // left right case
-    if (balance_factor > 1 && value > node->left->val) {
-        node->left = leftRotate(node->left);
-        return rightRotate(node);
+    if (balance_factor > 1 && value > root ->left->val) {
+        root ->left = leftRotate(root ->left);
+        return rightRotate(root);
     }
     // right left case
-    if (balance_factor < -1 && value < node->right->val) {
-        node->right = rightRotate(node->right);
-        return leftRotate(node);
+    if (balance_factor < -1 && value < root ->right->val) {
+        root ->right = rightRotate(root ->right);
+        return leftRotate(root);
     }
-    return node;
+    return root ;
+}
+
+Node* Delete_copy(Node* root, int value){
+
+    if (root==nullptr){
+        return root;
+    }
+
+    if (value<root->val){
+        root->left=Delete(root->left,value);
+    }
+    else if (value>root->val){
+        root->right=Delete(root->right,value);
+    }
+    else{
+        if (root->left==nullptr || root->right==nullptr){
+            Node* curr=nullptr;
+            if (root->left!=nullptr){
+                curr=root->left;
+            }
+            else{
+                curr=root->right;
+            }
+            if (curr==nullptr){
+                curr=root;
+                root=nullptr;
+            }
+            else{
+                *root=*curr;
+            }
+            delete(curr);
+        }
+        else{
+            Node* curr=getPredecessor(root->left);
+            root->val=curr->val;
+            root->left=Delete(root->left,curr->val);
+        }
+    }
+
+    if (root==nullptr){
+        return root;
+    }
+    root->height=std::max(height(root->left),height(root->right))+1;
+    int check=getBalanceFactor(root);
+    if ((check>1) && (0<=getBalanceFactor(root->left))){
+        return rightRotate(root);
+    }
+    if ((check>1) && (0>getBalanceFactor(root->left))){
+        root->left=leftRotate(root->left);
+        return rightRotate(root);
+    }
+    if ((check<-1) && (getBalanceFactor(root->right)<=0)){
+        return leftRotate(root);
+    }
+    if ((check<-1) && (getBalanceFactor(root->right)>0)){
+        root->right=rightRotate(root->right);
+        return leftRotate(root);
+    }
+
+    return root;
 }
 
 Node *Delete(Node* root, int value) {
     // 1) BST deletion
     if (!root) return root; 
-    else if(value < root->val) { // search through tree to find match of node we want to delete
+    else if(value < root->val) { 
         root->left = Delete(root->left, value);
     }
     else if(value > root->val) {
         root->right = Delete(root->right, value);
     }
-    else {        
-        // node has no children
-        if (!root->right and !root->left) {
-            root = NULL;
+    else{ //  node equal to value
+        
+        // node has no or only one child
+        if (root->left == nullptr || root->right == nullptr){
+            // we want to delte current node
+            Node* curr = nullptr;
+            if (root->left!=nullptr){
+                curr=root->left;
+            }
+            else{
+                curr=root->right;
+            }
+            if (curr==nullptr){
+                curr=root;
+                root=nullptr;
+            }
+            else{
+                *root=*curr;
+            }
+            delete(curr);
         }
-        // node has one child
-        else if (!root->left or !root->right) {
-            // replace root with connecting node (which deletes root)
-            Node* node_to_connect = root->left ? root->left : root->right;
-            root = node_to_connect;
-        }
-        else { // node has two children
-            Node* successor = getSuccessor(root);
-            // printf("successor value of %d is %d\n",root->val, successor->val);
-            // make successor as the new root node of subtree (pivot)
-            root->val = successor->val;
-            // Delete the inorder successor
-            root->right = Delete(root->right, successor->val);
+        else{
+            Node* curr=getPredecessor(root->left);
+            root->val=curr->val;
+            root->left=Delete(root->left,curr->val);
         }
     }
-    // if tree only has 1 node we delete that node and return NULL
-    if (root == NULL) {
+    // if tree only has 1 node we delete that node and return nullptr
+    if (root == nullptr) {
         return root;
     }
     // 2) update height of current node
@@ -286,7 +358,10 @@ void postorder(Node* node, Node* root) {
 
 // iterative functions 
 void iterativePreorder(Node* root) {
-    if (!root) return;
+    if (!root) {
+        std::cout << "EMPTY ";
+        return;
+    }
     std::stack<Node*> stk;
     Node* curr;
     stk.push(root);
@@ -301,11 +376,14 @@ void iterativePreorder(Node* root) {
 }
 
 void iterativeInorder(Node* root) {
-    if (!root) return;
+    if (!root) {
+        std::cout << "EMPTY ";
+        return;
+    }
     std::stack<Node*> s;
     Node* curr = root;
-    while (curr != NULL || s.empty() == false) {
-        while (curr !=  NULL) {
+    while (curr != nullptr || s.empty() == false) {
+        while (curr !=  nullptr) {
             s.push(curr);
             curr = curr->left;
         }
@@ -316,9 +394,12 @@ void iterativeInorder(Node* root) {
 }
 
 void iterativePostorder(Node* root) {
-    if (!root) return;
+    if (!root) {
+        std::cout << "EMPTY ";
+        return;
+    }
     std::stack<Node*> stk;
-    Node* last = NULL;
+    Node* last = nullptr;
     while (!stk.empty() || root) {
         if (root) { 
             stk.push(root); // push all valid roots to stack

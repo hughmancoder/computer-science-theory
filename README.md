@@ -1,5 +1,4 @@
-# Algorithms and data structures
+# Algorithms and Data Structures
 
-- implementations of algorithms and data structures in C++
-
-- problem solving included from PSSD
+- Algorithms and Data Structures are implemented in C++
+- Design patterns are implemented in Java from the textbook Head First Design Patterns (O'Reilly second edition)

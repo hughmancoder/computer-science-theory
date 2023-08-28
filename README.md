@@ -19,8 +19,15 @@ Inheritance: Inheritance is a mechanism where one class (subclass) acquires the 
 
 ## OO Principles
 
-Encapsulate what varies
+### Encapsulate What Varies
 
-Favor composition over inheretance
+This principle is often summarized as "Identify the aspects of your application that vary and encapsulate them." It encourages you to isolate and contain parts of your code that are likely to change in the future. By doing so, you can make changes to specific components without affecting the entire system. This principle promotes modular design and helps in maintaining a clear separation of concerns.
 
-Program to intefaces not implementation
+### Favor Composition Over Inheritance
+
+This principle suggests that you should prefer building new functionality by composing existing classes and components rather than relying heavily on class inheritance. While inheritance establishes an "is-a" relationship between classes, composition allows you to create more flexible and customizable interactions between objects. Composition allows you to assemble different behaviors without being tied to the constraints of a fixed inheritance hierarchy.
+
+### Program to Interfaces, Not Implementations
+
+This principle emphasizes designing your code to rely on interfaces (or abstract classes) rather than concrete implementations. By programming to interfaces, your code becomes more adaptable to changes. If you later need to replace a specific implementation with a different one, as long as they adhere to the same interface, the rest of your code doesn't need to change. This promotes flexibility and easier maintenance.
+

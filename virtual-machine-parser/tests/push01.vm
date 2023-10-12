@@ -1,0 +1,3 @@
+// push constant testing
+push constant 0
+push constant 42

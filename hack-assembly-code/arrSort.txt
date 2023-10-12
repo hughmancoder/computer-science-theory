@@ -1,0 +1,75 @@
+void bubbleSort(int arr[], int len)
+{
+    int i, j;
+    for (i = 0; i < len - 1; i++)
+ 
+        // Last i elements are already
+        // in place
+        for (j = 0; j < len - i - 1; j++
+                if (arr[j] > arr[j + 1]))
+                    swap(arr[j], arr[j + 1]);
+}
+
+
+// 
+
+
+//get j index
+@j 
+D=M 
+//get value at arr[j]
+@R1
+A = M + D
+D = M 
+//store at temp
+@temp 
+M = D
+
+//get value at arr[j+1]
+@j 
+D = M
+@R1 
+A = M + D 
+A = A + 1
+D = M 
+//store arr[j+1] at arr[j]
+A = A - 1
+M = D
+A = A + 1
+D = A
+//store address as variable
+@address
+A = M
+M = D
+//get value at arr[j]
+@temp 
+D = M 
+//save it at arr[j+1]
+@address 
+A = M
+M = D
+
+
+
+// SWAP
+@R1
+D = M 
+@j
+
+
+A = M + D 
+A = A + 1 // Array[j + 1]
+@prev
+D = M // arr[j]
+@j
+M = D // arr[j+1] = arr[j]
+@next
+D = M // D = arr[j + 1]
+@j
+A = M - 1 // gets arr[j]
+M = D // arr[j] = arr[j+1]
+
+SWAP
+temp = a[j] 
+a[j] = a[j+1]
+a[j+1] = temp

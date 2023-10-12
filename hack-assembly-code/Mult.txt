@@ -1,0 +1,42 @@
+@i
+ M=1
+(LOOP)
+ @i
+ D=M
+ @R1
+ D=D-M
+ @END
+ D;JGT
+ @R0
+ D=M
+ @mul
+ M=M+D
+ @i
+ M=M+1
+ @LOOP
+ 0;JMP
+(END)
+ @END
+ 0;JMP
+
+
+
+@0
+M = 0
+(LOOP)
+@2
+D = A
+// add r2 to r0
+@0
+M = M + D
+// decrement r1 register
+@1
+M = M - 1
+D = M 
+@LOOP
+D; JGT
+// A; JGT
+(END)
+// creates infinite loop
+@END
+0; JMP

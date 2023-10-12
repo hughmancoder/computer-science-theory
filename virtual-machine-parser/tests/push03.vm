@@ -1,0 +1,5 @@
+// push local, argument, this and that
+push local 0
+push argument 1
+push this 0
+push that 1

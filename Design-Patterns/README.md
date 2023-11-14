@@ -1,68 +1,70 @@
-# Design patterns
+# Design Patterns
 
 ## Principles
 
 ### Encapsulate What Varies
 
-isolate parts of your code that are most likely to change to have a single responsibility. This helps with maintainability and flexibility
+Isolate parts of your code that are most likely to change, ensuring they have a single responsibility. This approach enhances maintainability and flexibility.
 
 ### Favor Composition Over Inheritance
 
-Favour composing objects of other objects rather than inhereting a class from a parent class
+Compose objects from other objects, rather than inheriting from a parent class, to promote greater flexibility and extendibility in your code.
 
 ### Program to Interfaces, Not Implementations
 
-Design systems based on abstractions rather than concrete implementations. This principle enhances modularity, flexibility, and scalability and makes code more adaptable and facilitates easier testing and maintenance.
+Focus on designing systems based on abstractions rather than concrete implementations. This principle increases modularity, flexibility, scalability, and makes the code more adaptable. It also facilitates easier testing and maintenance.
 
 ## Design Patterns
 
 ### Strategy Pattern
 
-The Strategy pattern is a behavioral design pattern that enables selecting an algorithm's behaviour at runtime. Instead of implementing a single algorithm directly, code receives run-time instructions as to which in a family of algorithms to use.
+A behavioral design pattern that allows the selection of an algorithm's behavior at runtime. Instead of implementing a single algorithm, code receives run-time instructions on which algorithm to use from a family of algorithms.
 
 **Core Components**:
 
-- **Strategy Interface**: An interface common to all supported algorithms.
-- **Concrete Strategy**: Implements the strategy interface with a specific algorithm.
-- **Context**: Maintains a reference to a strategy object and is configured with a concrete strategy object to call the algorithm defined by the strategy.
+- **Strategy Interface**: Common interface for all supported algorithms.
+- **Concrete Strategy**: Specific implementation of the strategy interface.
+- **Context**: Maintains a reference to a strategy object and is configured with a concrete strategy to execute the algorithm.
 
-Example Application: Paxos distributed System where server can act as a proposer, acceptor or a learner
+**Example Application**: Paxos distributed System where a server can act as a proposer, acceptor, or learner.
 
-### Observer pattern
+### Observer Pattern
 
-Defines a one to many dpendency between objects so that when once changes, all dependednt are notified and updated automatically
+Defines a one-to-many dependency between objects. An object, known as the subject, notifies all dependent objects, known as observers, of any state changes. Useful where changes to one object require updates in others.
 
-Example: news paper subscription with publisher as subct and subscribers as observer
+### Decorator Pattern
+
+Dynamically attaches additional responsibilities to an object, providing a flexible alternative to subclassing for extending functionality. Enhances or modifies the behavior of individual objects at runtime without altering their classes.
 
 ### Factory Pattern
 
-The Factory pattern is a creational design pattern used to create objects. Instead of directly invoking a constructor, an interface is used for creating an object, but the choice of which class to instantiate is deferred to subclasses.
+A creational design pattern used to create objects via an interface. It defers the choice of which class to instantiate to subclasses.
 
 **Core Components**:
 
-- **Creator**: An abstract class or interface that declares the factory method, which returns an object of a product class.
-- **Concrete Creator**: Implements or extends the creator class and overrides the factory method to return an instance of a specific product.
-- **Product**: An interface or abstract class that defines the object the factory method will create.
-- **Concrete Product**: Implements or extends the product interface or class. The factory method instantiated in the concrete creator returns this.
+- **Creator**: Abstract class or interface declaring the factory method.
+- **Concrete Creator**: Implements or extends the creator, overriding the factory method.
+- **Product**: Interface or abstract class for the object created by the factory method.
+- **Concrete Product**: Implements or extends the product interface or class.
 
 ### Mediator Pattern
 
-The Mediator pattern is a behavioral design pattern that reduces the direct communication between objects by having them communicate instead through a mediator object. This centralizes complex communications and control between related objects.
+A behavioral pattern that reduces direct communication between objects through a mediator object. Centralizes complex communications and controls between related objects.
 
 **Core Components**:
 
-- **Mediator Interface**: An interface that defines the communication rules between objects.
-- **Concrete Mediator**: Implements the mediator interface and coordinates communication between colleague objects. It knows and maintains its colleagues.
-- **Colleagues**: Objects that communicate with each other through the mediator object.
+- **Mediator Interface**: Defines communication rules between objects.
+- **Concrete Mediator**: Implements the mediator interface, coordinating communication.
+- **Colleagues**: Objects communicating through the mediator.
 
 ### Singleton Pattern
 
-The Singleton pattern is a creational pattern that ensures a class has only one instance and provides a global point of access to it.
+Ensures a class has only one instance and provides a global point of access to it.
 
 **Core Components**:
 
-- **Singleton Class**: A class that ensures only a single instance of itself is created. It provides a static method that returns this instance, creating it on the first call.
+- **Singleton Class**: Ensures only a single instance is created, with a static method to access it.
 
-### Running the program
+### Running the Program
 
-Refer to makefile
+Refer to the provided makefile for instructions on compiling and running the program.

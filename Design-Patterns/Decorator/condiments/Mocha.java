@@ -1,4 +1,6 @@
-package Decorator;
+package Decorator.condiments;
+
+import Decorator.Beverage;
 
 public class Mocha extends CondimentDecorator {
     Beverage beverage;

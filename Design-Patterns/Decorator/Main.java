@@ -1,5 +1,7 @@
 package Decorator;
 
+import Decorator.condiments.*;
+
 // Coffee Shop
 public class Main {
         public static void main(String args[]) {

@@ -1,4 +1,5 @@
-// Source code is decompiled from a .class file using FernFlower decompiler.
+package behaviours;
+
 public class FlyRocketPowered implements FlyBehaviour {
   public FlyRocketPowered() {
   }

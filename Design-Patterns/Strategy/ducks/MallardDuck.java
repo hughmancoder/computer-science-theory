@@ -1,4 +1,8 @@
 // Source code is decompiled from a .class file using FernFlower decompiler.
+
+import behaviours.FlyWithWings;
+import behaviours.Quack;
+
 public class MallardDuck extends Duck {
   public MallardDuck() {
     new Quack();

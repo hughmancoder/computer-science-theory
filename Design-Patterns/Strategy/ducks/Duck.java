@@ -1,5 +1,10 @@
-// Source code is decompiled from a .class file using FernFlower decompiler.
+import behaviours.FlyBehaviour;
+import behaviours.FlyWithWings;
+import behaviours.Quack;
+import behaviours.QuackBehaviour;
+
 public abstract class Duck {
+  /* Object composition */
   protected FlyBehaviour flyBehaviour = new FlyWithWings();
   protected QuackBehaviour quackBehaviour = new Quack();
 

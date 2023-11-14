@@ -14,7 +14,7 @@ Favour composing objects of other objects rather than inhereting a class from a 
 
 Design systems based on abstractions rather than concrete implementations. This principle enhances modularity, flexibility, and scalability and makes code more adaptable and facilitates easier testing and maintenance.
 
-## Patterns
+## Design Patterns
 
 ### Strategy Pattern
 
@@ -27,6 +27,12 @@ The Strategy pattern is a behavioral design pattern that enables selecting an al
 - **Context**: Maintains a reference to a strategy object and is configured with a concrete strategy object to call the algorithm defined by the strategy.
 
 Example Application: Paxos distributed System where server can act as a proposer, acceptor or a learner
+
+### Observer pattern
+
+Defines a one to many dpendency between objects so that when once changes, all dependednt are notified and updated automatically
+
+Example: news paper subscription with publisher as subct and subscribers as observer
 
 ### Factory Pattern
 
@@ -56,3 +62,7 @@ The Singleton pattern is a creational pattern that ensures a class has only one 
 **Core Components**:
 
 - **Singleton Class**: A class that ensures only a single instance of itself is created. It provides a static method that returns this instance, creating it on the first call.
+
+### Running the program
+
+Refer to makefile

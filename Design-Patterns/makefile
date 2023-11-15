@@ -14,6 +14,9 @@ OBSERVER_TARGET=$(BINDIR)/ObserverPattern
 DECORATOR_SOURCES=$(wildcard Decorator/*.java)
 DECORATOR_TARGET=$(BINDIR)/DecoratorPattern
 
+FACTORY_SOURCES=$(wildcard Factory/*.java Factory/factoryPattern/*.java Factory/abstractFactoryPattern/*.java)
+FACTORY_TARGET=$(BINDIR)/FactoryPattern
+
 all: strategy observer decorator
 
 # Strategy Pattern Rules
@@ -36,6 +39,13 @@ $(DECORATOR_TARGET): $(DECORATOR_SOURCES)
 	$(JAVAC) -d $(BINDIR) $^
 run-decorator-pattern: decorator
 	$(JAVA) -cp $(BINDIR) Decorator.Main
+
+# Factory Pattern Rules
+factory: $(FACTORY_TARGET)
+$(FACTORY_TARGET): $(FACTORY_SOURCES)
+	$(JAVAC) -d $(BINDIR) $^
+run-factory-pattern: factory
+	$(JAVA) -cp $(BINDIR) Factory.Main
 
 clean:
 	rm -rf $(BINDIR)/*

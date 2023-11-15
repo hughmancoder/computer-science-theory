@@ -36,16 +36,45 @@ Defines a one-to-many dependency between objects. An object, known as the subjec
 
 Dynamically attaches additional responsibilities to an object, providing a flexible alternative to subclassing for extending functionality. Enhances or modifies the behavior of individual objects at runtime without altering their classes.
 
-### Factory Pattern
+#### Factory Pattern
 
-A creational design pattern used to create objects via an interface. It defers the choice of which class to instantiate to subclasses.
+**Definition**: The Factory pattern is a creational design pattern that provides an interface for creating objects in a superclass but allows subclasses to alter the type of objects that will be created.
 
-**Core Components**:
+**Key Components**:
 
-- **Creator**: Abstract class or interface declaring the factory method.
-- **Concrete Creator**: Implements or extends the creator, overriding the factory method.
-- **Product**: Interface or abstract class for the object created by the factory method.
-- **Concrete Product**: Implements or extends the product interface or class.
+- **Creator**: An abstract class or interface with a method for creating objects.
+- **ConcreteCreator**: A subclass that implements or overrides the method to create specific objects.
+- **Product**: The interface or abstract class for the type of object the factory method will create.
+- **ConcreteProduct**: The subclass of Product, which the factory method instantiates.
+
+**Usage**:
+
+- When the exact types of objects to be created are not known until runtime.
+- To encapsulate object creation to keep it separate from the main business logic.
+
+#### Abstract Factory Pattern
+
+**Definition**: The Abstract Factory pattern is a creational design pattern that provides an interface for creating families of related or dependent objects without specifying their concrete classes.
+
+**Key Components**:
+
+- **AbstractFactory**: An interface with methods for creating a set of related products.
+- **ConcreteFactory**: Specific classes that implement the AbstractFactory interface methods to create concrete products.
+- **AbstractProduct**: An interface for a type of product object.
+- **ConcreteProduct**: Classes that implement the AbstractProduct interface, representing specific products to be created by the concrete factory.
+- **Client**: The class that uses the abstract factory and its products.
+
+**Usage**:
+
+- When there are interdependencies between the creation of various objects.
+- To provide a way to configure a system with one of multiple families of products.
+
+#### Factory vs Abstract Factory pattern
+
+- Complexity and Scale: The Abstract Factory is more complex, dealing with families of products, while the Factory pattern is simpler, focusing on creating a single type of object.
+- Level of Abstraction: Abstract Factory works at a higher level of abstraction, creating families of related objects, whereas the Factory pattern creates individual objects.
+- Use Cases: The Factory pattern is used when it's necessary to encapsulate the logic of which concrete class to instantiate, while the Abstract Factory is used when the system needs to be independent of how its products are created, composed, and represented.
+- Interdependencies: Abstract Factory handles the interdependencies between products, while the Factory pattern does not necessarily deal with multiple related products.
 
 ### Mediator Pattern
 

@@ -1,4 +1,6 @@
-# System design questions
+# System design
+
+## Questions
 
 ### Stock Data
 

@@ -1,6 +1,7 @@
 # TODO
 
 - [ ] Graph problems
+- [ ] CTCI FCA solution implement
 - [ ] Bit Manipulation problems
 - [ ] Math and logic puzzles
 - [ ] Object oriented design

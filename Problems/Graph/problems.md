@@ -9,19 +9,15 @@ Given a sorted (increasing order) array with unique integer elements, write an a
 
 4.3 List of Depths
 Given a binary tree, design an algorithm which creates a linked list of all the nodes at each depth (e.g., if you have a tree with depth D, you'll have D linked lists).
-Hints: #107, #123, #135
 
 4.4 Check Balanced
 Implement a function to check if a binary tree is balanced. For this question, a balanced tree is defined as one where the heights of the two subtrees of any node never differ by more than one.
-Hints: #21, #33, #49, #105, #124
 
 4.5 Validate BST
 Implement a function to check if a binary tree is a binary search tree.
-Hints: #35, #57, #86, #113, #128
 
 4.6 Successor
-Write an algorithm to find the "next" node (i.e., in-order successor) of a given node in a binary search tree. Assume that each node has a link to its parent.
-Hints: #79, #91
+Write an algorithm to find the "next" node (i.e., in-order successor: the next node for inorder traversal) of a given node in a binary search tree. Assume that each node has a link to its parent.
 
 4.7 Build Order
 You are given a list of projects and a list of dependencies (pairs of projects, where the second project is dependent on the first). Find a build order that allows the projects to be built. If there is no valid build order, return an error.
@@ -29,7 +25,6 @@ Example Input:
 Projects: a, b, c, d, e, f
 Dependencies: (a, d), (f, b), (b, d), (f, a), (d, c)
 Output: f, e, a, b, d, c
-Hints: #26, #47, #60, #85, #125, #133
 
 4.8 First Common Ancestor
 Design an algorithm to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE: This is not necessarily a binary search tree.

@@ -37,7 +37,6 @@ Hints: #39, #48, #66, #82
 
 4.10 Check Subtree
 T1 and T2 are two very large binary trees, with T1 much bigger than T2. Create an algorithm to determine if T2 is a subtree of T1.
-Hints: #31
 
 4.11 Random Node
 Implement a binary tree class from scratch with methods insert, find, delete, and getRandomNode(), which returns a random node from the tree. All nodes should be equally likely to be chosen.

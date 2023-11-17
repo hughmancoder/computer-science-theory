@@ -4,7 +4,11 @@ class TreeNode:
         self.left = None
         self.right = None
 
-    
+"""
+Solution 1:
+Worst Case: O(n*m), considering naive substring search.
+Average/Best Case: O(n + m), considering efficient substring search algorithms.
+"""
 def isSubtree(T1: TreeNode, T2: TreeNode):
     def helper(node: TreeNode):
         if not node:
@@ -17,6 +21,36 @@ def isSubtree(T1: TreeNode, T2: TreeNode):
     structure_1 = helper(T1)
     structure_2 = helper(T2)
     return structure_2 in structure_1 
+
+
+"""
+Solution 2:
+Worst Case: O(n*m). This occurs when T2 is a subtree of a leaf node of T1, or when T2 is not a subtree but many subtrees of T1 are similar to T2, requiring almost full traversal of T2 for each node in T1.
+"""
+def areIdentical(root1, root2):
+    # Both roots are None, trees are identical
+    if not root1 and not root2:
+        return True
+    # Only one of the roots is None, trees are not identical
+    if not root1 or not root2:
+        return False
+    # Check if the data of both roots is same and check for subtrees
+    return (root1.value == root2.value and 
+            areIdentical(root1.left, root2.left) and 
+            areIdentical(root1.right, root2.right))
+
+def isSubtree(T1, T2):
+    # If T2 is empty, it's always a subtree
+    if not T2:
+        return True
+    # If T1 is empty, then T2 can't be a subtree
+    if not T1:
+        return False
+    # If the current nodes are identical, check for subtrees
+    if areIdentical(T1, T2):
+        return True
+    # Check if T2 is a subtree of the left or right subtree of T1
+    return isSubtree(T1.left, T2) or isSubtree(T1.right, T2)
 
 
 

@@ -28,7 +28,6 @@ Output: f, e, a, b, d, c
 
 4.8 First Common Ancestor
 Design an algorithm to find the first common ancestor of two nodes in a binary tree. Avoid storing additional nodes in a data structure. NOTE: This is not necessarily a binary search tree.
-Hints: #10, #16, #28, #36, #46, #70, #80, #96
 
 4.9 BST Sequences
 A binary search tree was created by traversing an array from left to right and inserting each element. Given a binary search tree with distinct elements, print all possible arrays that could have led to this tree.

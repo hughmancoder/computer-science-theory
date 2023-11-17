@@ -1,7 +1,6 @@
 # TODO
 
 - [ ] Graph problems
-- [ ] CTCI FCA solution implement
 - [ ] Bit Manipulation problems
 - [ ] Math and logic puzzles
 - [ ] Object oriented design
@@ -10,6 +9,11 @@
 - [ ] Testing
 - [ ] Databases
 - [ ] Threads and locks
+
+## Review
+
+- [ ] CTCI FCA solution implement
+- [ ] CTCI route between node
 
 ## Design patterns
 

@@ -42,4 +42,3 @@ Implement a binary tree class from scratch with methods insert, find, delete, an
 
 4.12 Paths with Sum
 You are given a binary tree where each node contains an integer value. Design an algorithm to count the number of paths that sum to a given value. The path does not need to start or end at the root or a leaf but must go downwards.
-Hints: #6, #14, #52, #68, #77, #87, #94, #103, #108, #115

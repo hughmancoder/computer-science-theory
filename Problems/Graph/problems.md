@@ -33,14 +33,12 @@ Design an algorithm to find the first common ancestor of two nodes in a binary t
 A binary search tree was created by traversing an array from left to right and inserting each element. Given a binary search tree with distinct elements, print all possible arrays that could have led to this tree.
 Example Input:
 Output: {2, 1, 3}, {2, 3, 1}
-Hints: #39, #48, #66, #82
 
 4.10 Check Subtree
 T1 and T2 are two very large binary trees, with T1 much bigger than T2. Create an algorithm to determine if T2 is a subtree of T1.
 
 4.11 Random Node
 Implement a binary tree class from scratch with methods insert, find, delete, and getRandomNode(), which returns a random node from the tree. All nodes should be equally likely to be chosen.
-Hints: #42, #54, #62, #75, #89, #99, #112, #119
 
 4.12 Paths with Sum
 You are given a binary tree where each node contains an integer value. Design an algorithm to count the number of paths that sum to a given value. The path does not need to start or end at the root or a leaf but must go downwards.

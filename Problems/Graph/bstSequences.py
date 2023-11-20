@@ -9,6 +9,10 @@ def weaveLists(first, second, prefix, results):
 
 def allSequences(node):
     pass
+
+def BSTSequences(root):
+    # TODO
+    pass
        
 
 root = TreeNode(2)

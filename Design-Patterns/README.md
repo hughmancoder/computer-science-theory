@@ -14,7 +14,7 @@ Compose objects from other objects, rather than inheriting from a parent class, 
 
 Focus on designing systems based on abstractions rather than concrete implementations. This principle increases modularity, flexibility, scalability, and makes the code more adaptable. It also facilitates easier testing and maintenance.
 
-## Design Patterns
+## Patterns
 
 ### Strategy Pattern
 

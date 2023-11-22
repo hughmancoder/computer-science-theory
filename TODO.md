@@ -1,6 +1,6 @@
 # TODO
 
-- [ ] Graph problems
+- [x] Graph problems
 - [ ] Bit Manipulation problems
 - [ ] Math and logic puzzles
 - [ ] Object oriented design
@@ -14,6 +14,7 @@
 
 - [ ] CTCI FCA solution implement
 - [ ] CTCI route between node
+- [ ] CTCI FlipBitToWin
 
 ## Design patterns
 

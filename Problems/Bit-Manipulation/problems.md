@@ -26,7 +26,9 @@ Output: 8
 
 ## 5.5 Debugger
 
-**Problem:** Explain what the following code does: `((n & (n - 1)) == 0)`.
+**Problem:** Explain what the following code does: `((n & (n - 1)) == 0)`
+
+**Solution** Determines if a bit is a power of two by checking if the last bit does not contain 1 such that the number is even
 
 ## 5.6 Conversion
 

@@ -16,5 +16,9 @@ public class Card {
     public Suit getSuit() {
         return suit;
     }
+
+    public void display() {
+        System.out.println("Card: " + rank + " of " + suit);
+    }
     
 }

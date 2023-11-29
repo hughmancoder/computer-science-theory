@@ -2,11 +2,7 @@
 
 1. **Deck of Cards**: Design the data structures for a generic deck of cards. Explain how you would subclass the data structures to implement blackjack.
 
-   - Hints: »153, »275
-
 2. **Call Center**: Imagine you have a call center with three levels of employees: respondent, manager, and director. Design the classes and data structures for this problem. Implement a method `dispatchCall()` which assigns a call to the first available employee.
-
-   - Hints: 0363
 
 3. **Jukebox**: Design a musical jukebox using object-oriented principles.
 

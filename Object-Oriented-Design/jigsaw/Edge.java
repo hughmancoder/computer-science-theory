@@ -1,17 +1,23 @@
 public class Edge {
-    public enum EdgeType {
+    public enum Shape {
         INNER, OUTER, FLAT
     }
 
-    private EdgeType type;
-    private int partnerId; // ID of the edge this edge fits with
+    private Shape shape;
+    private int partnerId;
 
-    public Edge(EdgeType type) {
-        this.type = type;
+    public Edge(Shape shape) {
+        this.shape = shape;
     }
 
     public boolean fitsWith(Edge other) {
-        // TODO
+        if (this.shape == Shape.FLAT && other.shape == Shape.FLAT) {
+            return true;
+        } else if (this.shape == Shape.INNER && other.shape == Shape.OUTER) {
+            return true;
+        } else if (this.shape == Shape.OUTER && other.shape == Shape.INNER) {
+            return true;
+        }
         return false;
     }
 }

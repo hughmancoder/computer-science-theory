@@ -4,19 +4,20 @@ class PuzzlePiece {
     String id;
     List<Edge> edges;
     private int orientation; // 0, 90, 180, 270
-    private boolean isPlaced;
 
-    public PuzzlePiece(int id, List<Edge> edges) {
-        this.id = id;
-        this.edges = edges;
+    public PuzzlePiece(int x, int y, List<Edge> edges) { // Corrected type of id to String
+        this.id = x + ":" + y;
         this.orientation = 0;
-        this.isPlaced = false;
     }
 
     public void rotate() {
-        // Rotates the piece by 90 degrees clockwise and rearranges edges
         orientation = (orientation + 90) % 360;
+        // remove from start and add to end
         Edge temp = edges.remove(0);
         edges.add(temp);
+    }
+
+    public String getId() {
+        return id;
     }
 }

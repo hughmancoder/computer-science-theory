@@ -1,3 +1,5 @@
+import java.util.List;
+
 public class Puzzle {
     private List<PuzzlePiece> pieces;
     private int size;
@@ -9,15 +11,25 @@ public class Puzzle {
         this.board = new PuzzlePiece[size][size];
     }
 
-    public void solve() {
-        // Implement the puzzle-solving algorithm
-        // This would include the edge sorting, border assembly, and inner piece filling
+    public void solveNaive() {
+        for (PuzzlePiece piece : pieces) {
+            for (int row = 0; row < size; row++) {
+                for (int col = 0; col < size; col++) {
+                    if (fitsAtPosition(piece, row, col)) {
+                        board[row][col] = piece;
+                        break;
+                    }
+                }
+            }
+        }
+    }
+
+    public PuzzlePiece[][] getBoard() {
+        return board;
     }
 
     private boolean fitsAtPosition(PuzzlePiece piece, int row, int col) {
-        // Implement logic to check if a piece fits at the given position
-        return false; // Placeholder
+        return board[row][col] == null;
     }
 
-    // Additional methods for solving the puzzle
 }

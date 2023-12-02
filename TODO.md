@@ -2,8 +2,8 @@
 
 - [x] Graph problems
 - [x] Bit Manipulation problems
-- [ ] Math and logic puzzles
-- [ ] Object oriented design
+- [x] Math and logic puzzles
+- [x] Object oriented design
 - [ ] DP
 - [ ] System design
 - [ ] Testing

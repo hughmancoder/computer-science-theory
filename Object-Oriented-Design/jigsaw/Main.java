@@ -4,8 +4,10 @@ import java.util.List;
 public class Main {
     public static void main(String[] args) {
         List<PuzzlePiece> pieces = new ArrayList<>();
-        int Size = 4;
-        int totalPieces = Size * Size;
+        int size = 4;
+        int totalPieces = size * size;
+
+        // Initialize puzzle pieces
         for (int i = 0; i < totalPieces; i++) {
             List<Edge> edges = new ArrayList<>();
 
@@ -16,23 +18,29 @@ public class Main {
                 edges.add(new Edge(shape));
             }
 
-            // coordinates
-            int x = i / Size;
-            int y = i % Size;
+            // Coordinates
+            int x = i / size;
+            int y = i % size;
 
             pieces.add(new PuzzlePiece(x, y, edges));
         }
 
-        int size = 4;
+        // Create and solve the puzzle
         Puzzle puzzle = new Puzzle(size, pieces);
-        puzzle.solveNaive();
+        puzzle.solveNaive(); // Assuming this is your solving method
 
-        // Output or display the solved puzzle
+        // Output the solved puzzle layout
         System.out.println("Solved Puzzle Layout:");
         for (int row = 0; row < size; row++) {
             for (int col = 0; col < size; col++) {
                 PuzzlePiece piece = puzzle.getBoard()[row][col];
-                System.out.print((piece != null ? piece.getId() : "Empty") + "\t");
+
+                if (piece != null) {
+                    Coordinate coordinate = piece.getCoordinate();
+                    System.out.print("[" + coordinate.x + "," + coordinate.y + "] ");
+                } else {
+                    System.out.print("[  ] ");
+                }
             }
             System.out.println();
         }

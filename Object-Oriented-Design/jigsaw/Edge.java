@@ -4,7 +4,6 @@ public class Edge {
     }
 
     private Shape shape;
-    private int partnerId;
 
     public Edge(Shape shape) {
         this.shape = shape;

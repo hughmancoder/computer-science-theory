@@ -23,10 +23,12 @@ public class MinesweeperGameRunner {
         scanner.close();
         if (grid.isAllMinesFlagged()) {
             System.out.println("Congratulations! You have won the game.");
+            gameOver = true;
         } else {
             System.out.println("Game Over! You hit a mine.");
             grid.revealAll();
             grid.display();
+            gameOver = true;
         }
     }
 

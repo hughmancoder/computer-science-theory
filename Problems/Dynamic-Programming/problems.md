@@ -69,7 +69,3 @@ Given a boolean expression consisting of the symbols 0 (false), 1 (true), & (AND
 **EXAMPLE:**
 countEval("1^0|0|1", false) -> 2
 countEval("0&0&0&1^1|0", true) -> 10
-
-### Additional Questions
-
-Linked Lists (#2.2, #2.5, #2.6), Stacks and Queues (#3.3), Trees and Graphs (#4.2, #4.3, #4.4, #4.5, #4.8, #4.10, #4.11, #4.12), Math and Logic Puzzles (#6.6), Sorting and Searching (#10.5,

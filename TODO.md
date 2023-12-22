@@ -3,19 +3,17 @@
 - [x] Graph problems
 - [x] Bit Manipulation problems
 - [x] Math and logic puzzles
-- [x] Object oriented design
+- [ ] Object oriented design
 - [ ] DP
 - [ ] System design
-- [ ] Testing
-- [ ] Databases
-- [ ] Threads and locks
+- [ ] Database design and SQL course
 
 ## Review
 
-- [ ] CTCI FCA solution implement
-- [ ] CTCI route between node
-- [ ] CTCI NextNumber
-- [ ] CTCI DrawLine review
+- [ ] FCA solution implement
+- [ ] route between node
+- [ ] NextNumber
+- [ ] DrawLine review
 
 ## Design patterns
 

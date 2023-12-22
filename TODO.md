@@ -3,7 +3,7 @@
 - [x] Graph problems
 - [x] Bit Manipulation problems
 - [x] Math and logic puzzles
-- [ ] Object oriented design
+- [x] Object oriented design
 - [ ] DP
 - [ ] System design
 - [ ] Database design and SQL course

@@ -15,12 +15,14 @@ public class Directory implements Serializable {
     private Map<String, File> files = new HashMap<>();
     private static long creationTime;
     private long modificationTime;
+    private Directory parentDirectory;
 
-    public Directory(String directoryPath, Map<String, Directory> subDirectories) {
+    public Directory(String directoryPath, Map<String, Directory> subDirectories, Directory parentDirectory) {
         this.subDirectories = (subDirectories != null) ? subDirectories : new HashMap<>();
         this.modificationTime = System.currentTimeMillis();
         this.files = new HashMap<>();
         this.directoryPath = directoryPath;
+        this.parentDirectory = parentDirectory;
     }
 
     public void addDirectory(String name, Directory directory) {
@@ -64,7 +66,11 @@ public class Directory implements Serializable {
     }
 
     public void putSubDirectory(String name) {
-        subDirectories.put(name, new Directory(name, null));
+        subDirectories.put(name, new Directory(name, null, this));
+    }
+
+    public Directory getParentDirectory() {
+        return parentDirectory;
     }
 
     public Map<String, File> getFiles() {

@@ -8,7 +8,7 @@ class FileSystem {
     private Directory currentDirectory;
 
     public FileSystem() {
-        root = new Directory("~", null);
+        root = new Directory("~", null, null);
         currentDirectory = root;
         System.out.println("Info: file system created");
     }
@@ -25,6 +25,10 @@ class FileSystem {
                     + " path sourcemap is " + Arrays.toString(d));
             for (int i = 1; i < d.length; i++) {
                 if (d[i].length() == 0) {
+                    continue;
+                }
+                if (d[i].equals("..")) {
+                    t = t.getParentDirectory();
                     continue;
                 }
                 if (!t.getSubDirectories().containsKey(d[i])) {

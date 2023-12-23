@@ -1,11 +1,17 @@
 class Solution:
     memo = {}
-    def multiply(self, a, b):
+    def multiply(self,a, b):
         self.memo = {}
-        if a < b:
-            return self.recursiveMultiply(a, b)
+        A = abs(a)
+        B = abs(b)
+        if A < B:
+            res =  self.recursiveMultiplyV2(A, B)
         else:
-            return self.recursiveMultiply(b, a)
+            res = self.recursiveMultiplyV2(B, A)
+        
+        if(a < 0 and b > 0) or (a > 0 and b < 0):
+            return -res
+        return res
 
     def recursiveMultiply(self, a, b):
         if a == 0 or b == 0:
@@ -22,7 +28,27 @@ class Solution:
         
         self.memo[(a, b)] = res
         return res
+    
+    def recursiveMultiplyV2(self, smaller, bigger):
+        if smaller == 0:
+            return 0
+        elif smaller == 1:
+            return bigger
 
+        if smaller in self.memo:
+            return self.memo[smaller]
+
+        s = smaller >> 1 # divide by 2
+        halfProd = self.recursiveMultiplyV2(s, bigger)
+
+        if smaller % 2 == 0:
+            result = halfProd << 1
+        else:
+            result = (halfProd << 1) + bigger
+
+        self.memo[smaller] = result
+        return result
+        
 
 solution = Solution()
 a = 23432423

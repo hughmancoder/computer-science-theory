@@ -44,11 +44,11 @@ This repository is a comprehensive collection of code, theories, and examples sp
 
 - **Deck-of-Cards**: This project simulates a deck of playing cards. It can shuffle the deck and deal cards. Classes are abstracted as much as possible for flexibility, and maintanability and specific card suites and ranks are delegated by enums.
 
-- **File-System**: This project simulates a basic file system with directories and files. It supports operations like creating, reading, updating files and directories. The underlying data structure is an N-ary tree built with the composite design pattern which is acheived by Direcotry objects having a hashmap of child Directory objects and File objects. The files system manager suports operations such equivalent to linux commands such as cd, ls, mkdir.
+- **File-System**: This project simulates a basic file system with directories and files. It supports operations like creating, reading, updating and deleting files and directories. The underlying data structure is an N-ary tree built with the composite design pattern which is acheived by Direcotry objects having a hashmap of child Directory objects and File objects. The files system manager suports operations such equivalent to linux commands such as cd, ls,rm, mkdir, touch, pwd.
 
-- **Jigsaw**: This project simulates a jigsaw puzzle. It can check if a piece fits in a certain spot and can track the state of the puzzle.
+- **Jigsaw**: This project simulates a jigsaw puzzle. It can check if a piece fits in a certain spot and can track the state of the puzzle with each edge beign identifiable as a corner, middle, or edge piece, with each edge having a unique shape and can have inset or outset protrusions. A naive recursive solution is implemented to solve the puzzle given a random scramble.
 
-- **Minesweeper**: This project simulates the game of Minesweeper. It generates a game board with mines placed in random locations and allows the player to make moves.
+- **Minesweeper**: This project simulates the game of Minesweeper and is full featured and runs in the terminal. It generates a game board with mines placed in random locations and allows the player to make moves.
 
 ### Database-Design
 

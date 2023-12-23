@@ -1,5 +1,7 @@
 import java.io.Serializable;
 
+/* Improvement: File and Directory could extend and Entry parent class wehich coudl handle file and direcstory mertadata such as creataed, parent, name and lastUpdated  */
+
 public class File implements Serializable {
 
     private String name;

@@ -20,5 +20,4 @@ public class Card {
     public void display() {
         System.out.println("Card: " + rank + " of " + suit);
     }
-    
 }

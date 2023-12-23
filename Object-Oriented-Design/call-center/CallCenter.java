@@ -3,6 +3,11 @@
 import java.util.Iterator;
 import java.util.List;
 
+/*
+   * NOTE: syntax is unconvential as I accidentally deleted my .java file using rm *.java 
+   * and had to decompile the .class file to recover my code. Hence
+   * functionality is maintained but not syntax in this subdirectory
+   */
 public class CallCenter {
     private List<Respondent> respondents;
     private List<Manager> managers;

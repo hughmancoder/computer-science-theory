@@ -9,20 +9,18 @@ import java.util.List;
  * and reconstructed later back into its original state. This process is called
  * serialization and deserialization respectively.
  */
-
 public class Directory implements Serializable {
-
-    private String name;
+    private String directoryPath;
     private Map<String, Directory> subDirectories = new HashMap<>();
     private Map<String, File> files = new HashMap<>();
     private static long creationTime;
     private long modificationTime;
 
-    public Directory(String name, Map<String, Directory> subDirectories) {
+    public Directory(String directoryPath, Map<String, Directory> subDirectories) {
         this.subDirectories = (subDirectories != null) ? subDirectories : new HashMap<>();
         this.modificationTime = System.currentTimeMillis();
         this.files = new HashMap<>();
-        this.name = name;
+        this.directoryPath = directoryPath;
     }
 
     public void addDirectory(String name, Directory directory) {
@@ -46,14 +44,19 @@ public class Directory implements Serializable {
         for (String fileName : files.keySet()) {
             contents.add(fileName);
         }
-        for (String subDirectoryName : subDirectories.keySet()) {
-            contents.add(subDirectoryName + "/");
+        for (Directory subDirectory : subDirectories.values()) {
+            contents.add(subDirectory.getName());
         }
         return contents;
     }
 
     public String getName() {
-        return name;
+        String[] pathArray = directoryPath.split("/");
+        return pathArray[pathArray.length - 1];
+    }
+
+    public String getDirectoryPath() {
+        return this.directoryPath;
     }
 
     public Map<String, Directory> getSubDirectories() {

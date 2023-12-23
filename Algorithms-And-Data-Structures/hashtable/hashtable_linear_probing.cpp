@@ -7,7 +7,6 @@ using namespace std;
 const int TABLE_SIZE = 26;
 struct Node {
   bool used;
-  // bool tombstone;
   string value;
 };
 // hash table with linear probing

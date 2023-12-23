@@ -11,7 +11,7 @@ public:
   std::string singleDigitMultiplication(std::string a, std::string b, int B);
   std::string partialProduct(std::string a, char b, int B);
   std::string karatsuba(std::string a, std::string b, int B);
-  std::string DecimalMultiplication(std::string a, std::string b, int B);
+  std::string decimalMultiplication(std::string a, std::string b, int B);
   std::string schoolMultiplication(std::string a, std::string b, int B);
   std::string removeLeadingZeros(std::string s);
   void alignNumbers(std::string &a, std::string &b);
@@ -172,8 +172,6 @@ std::string Karatsuba::karatsuba(std::string a, std::string b, int B) {
 
   alignNumbers(a, b);
 
-  // cout << a << " " << b << endl;
-
   if (n < 4) {
     return schoolMultiplication(a, b, B);
   }
@@ -198,8 +196,6 @@ std::string Karatsuba::karatsuba(std::string a, std::string b, int B) {
   // evaluating parts
   std::string p2_p3 = schoolSubtraction(p2, p3, B) + string((n - k), '0');
 
-  // cout << p1 << " " << p2_p3 << " " << p4 << endl;
-
   // add all parts to compute p1 + p2_p3 + p4
   return schoolAddition(schoolAddition(p1, p2_p3, B), p4, B);
 }
@@ -208,7 +204,7 @@ std::string Karatsuba::karatsuba(std::string a, std::string b, int B) {
 int Karatsuba::division(std::string a, std::string b, int B) { return 0; }
 
 // converts multiplication in given base to base 10 (unused)
-std::string Karatsuba::DecimalMultiplication(std::string a, std::string b,
+std::string Karatsuba::decimalMultiplication(std::string a, std::string b,
                                              int B) {
   // we evaluate normally
   int i1, i2;

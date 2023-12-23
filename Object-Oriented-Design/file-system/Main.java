@@ -4,27 +4,30 @@ public class Main {
         // Create a FileSystem
         FileSystem fs = new FileSystem();
 
-        // Create a ~ directory
-        fs.mkdir("/~");
+        // Create a directory
+        fs.mkdir("user/subdir");
 
-        // Create a file in the ~ directory
+        // Create a file in the root directory
         File file1 = new File("This is the content of file1");
-        fs.getRoot().addFile("file1.txt", file1);
-
-        // Create a subdirectory
-        fs.mkdir("/~/subdir");
+        fs.getCurrentDirectory().addFile("file1.txt", file1);
 
         // Create a file in the subdirectory
         File file2 = new File("This is the content of file2");
-        fs.traverseDirectories("/~/subdir").addFile("file2.txt", file2);
+        fs.cd("user/subdir").addFile("file2.txt", file2);
 
-        // Read content from a file in the ~ directory
-        String content1 = fs.readContentFromFile("/file1.txt");
-        System.out.println(content1);
+        // Print current directory
+        fs.pwd();
 
-        // Read content from a file in the subdirectory
-        String content2 = fs.readContentFromFile("/~/subdir/file2.txt");
-        System.out.println(content2);
+        // List contents of current directory
+        fs.ls(null);
 
+        // Create a new file in the current directory
+        fs.touch("newfile.txt");
+
+        // Remove a file from the current directory
+        fs.rm("file2.txt");
+
+        // List contents of current directory after removing a file
+        fs.ls(null);
     }
 }

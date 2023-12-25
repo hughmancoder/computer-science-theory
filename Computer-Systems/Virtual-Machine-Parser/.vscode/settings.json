@@ -1,0 +1,31 @@
+{
+    "files.associations": {
+        "iostream": "cpp",
+        "string": "cpp",
+        "iosfwd": "cpp",
+        "__bit_reference": "cpp",
+        "__functional_base": "cpp",
+        "__node_handle": "cpp",
+        "algorithm": "cpp",
+        "atomic": "cpp",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "cstddef": "cpp",
+        "deque": "cpp",
+        "__memory": "cpp",
+        "filesystem": "cpp",
+        "functional": "cpp",
+        "iterator": "cpp",
+        "limits": "cpp",
+        "locale": "cpp",
+        "optional": "cpp",
+        "ratio": "cpp",
+        "regex": "cpp",
+        "system_error": "cpp",
+        "tuple": "cpp",
+        "type_traits": "cpp",
+        "vector": "cpp",
+        "memory": "cpp"
+    },
+    "python.formatting.provider": "autopep8"
+}

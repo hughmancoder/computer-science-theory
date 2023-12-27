@@ -1,0 +1,3 @@
+// addition pop static and temp 
+pop static 10
+pop temp 7

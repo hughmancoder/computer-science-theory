@@ -52,46 +52,42 @@ This repository is a comprehensive collection of code, theories, and examples sp
 
 ### System design
 
-**Cache-Design**
+- **Cache-Design**
 
 This document describes the design of a caching mechanism for a web server with 100 machines to respond to search queries. It discusses considerations such as distributed caching, cache invalidation, cache eviction policy, and load balancing.
 
-**Duplicate-URL**
+- **Duplicate-URL**
 
 This document discusses the design of a system to detect duplicate documents among 10 billion URLs with identical content. It covers considerations such as URL normalization, robots.txt, crawl depth, rate limiting, and handling real-world situations where some friends have more than others.
 
-**Pastebin**
+- **Pastebin**
 
 This document describes the design of a system like Pastebin for generating random URLs to access user-entered text. It discusses considerations such as URL generation, text storage, data retrieval, and expiration.
 
-**Personal-Financial-Manager**
+- **Personal-Financial-Manager**
 
 This document describes the design of a personal financial manager like Mint.com, connecting to bank accounts, analyzing spending habits, and making recommendations. It discusses considerations such as data integration, data analysis, recommendations, and security and privacy.
 
-**Sales-Rank**
+- **Sales-Rank**
 
 This document describes the design of a system to list best-selling products overall and by category for a large eCommerce company. It discusses considerations such as data collection, data processing, data storage, and data presentation.
 
-**Social-Network**
+- **Social-Network**
 
 This document describes the design of a social network system. It discusses considerations such as user management, friend management, post management, and news feed generation.
 
-**Stock-Data**
+- **Stock-Data**
 
 This document describes the design of a system to fetch and analyze stock data. It discusses considerations such as data fetching, data storage, data analysis, and data presentation.
 
-**Web-Crawler**
+- **Web-Crawler**
 
 This document describes the design of a web crawler while avoiding infinite loops. It discusses considerations such as URL normalization, robots.txt, crawl depth, rate limiting, and handling real-world situations where some friends have more than others.
 
-### Problem
+### Algorithm and Data-structure Problems
 
 - **Bit-Manipulation**
 - **DP**
 - **Graph**: Graph problems and Python solutions, including tree traversals and validations
 - **Math**
 - **Moderate**
-
-### System-Design
-
-### Testing

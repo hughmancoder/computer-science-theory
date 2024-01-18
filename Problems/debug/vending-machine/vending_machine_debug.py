@@ -6,6 +6,7 @@ import random
 import re
 import sys
 
+ 
 class VendingMachineStates:
     STAND_BY = "STAND_BY"
     SELECTED_ITEM = "SELECTED_ITEM"
@@ -39,41 +40,43 @@ class VendingMachine:
     def select_item(self, i, j):
         i -= 1
         j -= 1
-        # changed
-        if self.state != VendingMachineStates.INSERT_MONEY:
+
+        if not VendingMachineStates().can_change_vending_machine_state(self.state, VendingMachineStates.SELECTED_ITEM):
             self.reset_vending_machine()
             return -1
+        
+        self.state = VendingMachineStates.INSERT_MONEY
 
-        # changed
+        # fixed j index error
         if i >= len(self.items_number) or j >= len(self.items_number[0]) or i < 0 or j < 0:
             self.reset_vending_machine()
             return -1
-
-        # changed
+        
+        # fixed to disregard 0 items
         if self.items_count[i][j] <= 0:
             self.reset_vending_machine()
             return -1
-
         self.selected_index = [i, j]
-        self.state = VendingMachineStates.INSERT_MONEY # changed
         return self.items_number[i][j]
 
-    def insert_money(self, money):
-        if self.state != VendingMachineStates.INSERT_MONEY:
-            self.reset_vending_machine()
-            return -1
+def insert_money(self, money):
+    if not VendingMachineStates().can_change_vending_machine_state(self.state, VendingMachineStates.STAND_BY):
+        self.reset_vending_machine()
+        return -1
 
-        cost_of_selected_item = self.items_cost[self.selected_index[0]][self.selected_index[1]]
-        change = money - cost_of_selected_item
+    cost_of_selected_item = self.items_cost[self.selected_index[0]][self.selected_index[1]]
+    change = money - cost_of_selected_item
 
-        if change < 0 or change > self.total_cash:
-            self.reset_vending_machine()
-            return -1
+    if change < 0 or change > self.total_cash:
+        self.reset_vending_machine()
+        return -1
 
-        self.total_cash -= change # changed
-        self.items_count[self.selected_index[0]][self.selected_index[1]] -= 1
-        self.state = VendingMachineStates.STAND_BY
-        return change
+    self.total_cash -= cost_of_selected_item
+    self.items_count[self.selected_index[0]][self.selected_index[1]] -= 1
+    self.state = VendingMachineStates.STAND_BY
+
+    return change
+    
 
 def read(N, M, arr):
     for i in range(N):

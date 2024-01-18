@@ -41,34 +41,73 @@ Complete the function `authEvents` in the editor below. `authEvents` has the fol
 - `0 ≤ x ≤ 10^9+7`, where `x` is the integer value of the parameter of the `authorize` event
 - The first event will always be a `setPassword` event.
 """
+# Solution 1 (editorial)
+import string
+import string
 
-def authEvents(events):
-    p = 131
-    M = 10**9 + 7
-    password_hash = 32= [0]*128
-    res = []
+class Solution1:
+    P = 131
+    MOD = 10**9+7
+    VALID_CHARS = string.ascii_lowercase + string.ascii_uppercase + string.digits
+    SET = "setPassword"
+    AUTH = "authorize"
 
-    def compute_hash(s):
-        hash_value = 0
-        p_pow = 1
-        for ch in reversed(s):
-            hash_value = (hash_value + (ord(ch) * p_pow)) % M
-            p_pow = (p_pow * p) % M
-        return hash_value
+    def h(s): 
+        y = 0
+        for c in s:
+            y = (P * y + ord(c)) % Solution1.MOD
+        return y
 
-    def update_appended_hashes():
-        for i in range(128):
-            appended_hashes[i] = (password_hash * p + i) % M
+    def get_hashes(p):
+        hashes = set([Solution1.h(p)])
+        for c in Solution1.VALID_CHARS:
+            hashes.add(Solution1.h(p+c))
+        return hashes
 
-    for event in events:
-        if event[0] == 'setPassword':
-            password_hash = compute_hash(event[1])
-            update_appended_hashes()
-        else:  # event[0] == 'authorize'
-            x = int(event[1])
-            if password_hash == x or x in appended_hashes:
-                res.append(1)
-            else:
-                res.append(0)
+    def authEvents(events):
+        hashes = None
+        res = []
+        for event_type, param in events:
+            if event_type == Solution1.SET:
+                hashes = Solution1.get_hashes(param)
+            else:                   
+                param = int(param)
+                res.append(int(param in hashes))
+        return res
 
-    return res
+# Solution 2
+class Solution2:
+    def authEvents(events):
+        p = 131
+        M = 10**9 + 7
+        password_hash = [0]*128
+        res = []
+
+        def compute_hash(s):
+            hash_value = 0
+            p_pow = 1
+            for ch in reversed(s):
+                hash_value = (hash_value + (ord(ch) * p_pow)) % M
+                p_pow = (p_pow * p) % M
+            return hash_value
+
+        def update_appended_hashes():
+            for i in range(128):
+                appended_hashes[i] = (password_hash * p + i) % M
+
+        for event in events:
+            if event[0] == 'setPassword':
+                password_hash = compute_hash(event[1])
+                update_appended_hashes()
+            else:  # event[0] == 'authorize'
+                x = int(event[1])
+                if password_hash == x or x in appended_hashes:
+                    res.append(1)
+                else:
+                    res.append(0)
+
+        return res
+    
+VALID_CHARS = string.ascii_lowercase + string.ascii_uppercase + string.digits
+print("valid chars: ", VALID_CHARS)
+print("ascii lowercase: ", string.ascii_lowercase)

@@ -6,6 +6,9 @@ import random
 import re
 import sys
 
+"""Solution: 
+The code has a bug during item selection where it doesn't properly validate the item cell (j >= len(itemsNumber[0])). Additionally, when itemsCount[i][j] <= 0, the vending machine should reset, but currently, it only resets when itemsCount[i][j] < 0.
+"""
 class VendingMachineStates:
     STAND_BY = "STAND_BY"
     SELECTED_ITEM = "SELECTED_ITEM"

@@ -32,7 +32,24 @@ int stocksProfit[n]: an array of integers representing the stocks profits target
 Returns:
 int: the total number of pairs
 """
+# solution 1 (optimal, O(n) time, O(n) space)
+def stockPairs(stocksProfit, target):
+    stock_values = set(stocksProfit)
+    ans = 0
+    for value in stock_values:
+        # if they are not the same 
+        if target - value in stock_values and target != 2 * value:
+            ans += 1
 
+    # add the same values for the case where target can be halved
+    if target % 2 == 0 and stocksProfit.count(target // 2) > 1:
+        ans += 2
+
+    # divide answer by two as we are only concerned with distinct pairs
+    return ans // 2
+
+
+# solution 2
 def stockPairs(stocksProfit, target):
     profit_count = {}
     for profit in stocksProfit:
@@ -55,3 +72,20 @@ def stockPairs(stocksProfit, target):
                 profit_count[complement] -= min_count
 
     return pair_count
+
+# Follow up: What if the task is to find out the number of distinct pair of stocks such that their sum is ≥ target?
+
+# O(nlogn) time, O(1) space
+def stockPairs(stocksProfit, target):
+    stocksProfit.sort()
+    ans = 0
+    left, right = 0, len(stocksProfit) - 1
+
+    while left < right:
+        if stocksProfit[left] + stocksProfit[right] >= target:
+            ans += right - left
+            right -= 1
+        else:
+            left += 1
+
+    return ans

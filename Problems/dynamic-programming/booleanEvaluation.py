@@ -1,4 +1,4 @@
-"""TODO: review and resolve"""
+# TODO revise
 def count_eval(s, result, memo={}):
     if len(s) == 0:
         return 0

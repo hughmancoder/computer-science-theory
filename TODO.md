@@ -5,16 +5,13 @@
 - [x] Math and logic puzzles
 - [x] Object oriented design
 - [x] DP
-- [ ] System design
+- [x] System design
 - [ ] Database design and SQL course
-- [ ] Threads and locks
 
-## Review
+## Problems
 
-- [ ] FCA solution implement
-- [ ] Route between node
 - [ ] NextNumber
-- [ ] DrawLine review
+- [ ] simplify_debts
 
 ## Design patterns
 

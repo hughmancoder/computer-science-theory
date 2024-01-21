@@ -1,28 +1,3 @@
-""" def nextNumber(num):
-    ones = sum([1 for bit in bin(num)[2:] if bit == '1'])
-    next_smallest = None
-    next_largest = None
-    temp = num
-    # get next smallest
-    while True:
-        num  -= 1
-        one_count = sum([1 for bit in bin(num)[2:] if bit == '1'])
-        if one_count == ones:
-            next_smallest = num
-            break
-    
-    num = temp
-    # get next largest
-    while True:
-        num += 1
-        one_count = sum([1 for bit in bin(num)[2:] if bit == '1'])
-        if one_count == ones:
-            next_largest = num
-            break
-
-    print(next_smallest, next_largest)
-    print(bin(next_smallest), bin(next_largest)) """
-
 # TODO revise
 class NextNumber:
     def getNextLargest(n):

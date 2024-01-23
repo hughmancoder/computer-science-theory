@@ -83,11 +83,3 @@ This document describes the design of a system to fetch and analyze stock data. 
 - **Web-Crawler**
 
 This document describes the design of a web crawler while avoiding infinite loops. It discusses considerations such as URL normalization, robots.txt, crawl depth, rate limiting, and handling real-world situations where some friends have more than others.
-
-### Algorithm and Data-structure Problems
-
-- **Bit-Manipulation**
-- **DP**
-- **Graph**: Graph problems and Python solutions, including tree traversals and validations
-- **Math**
-- **Moderate**

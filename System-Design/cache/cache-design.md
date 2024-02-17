@@ -14,33 +14,6 @@ Cache Eviction Policy: When the cache is full, a policy needs to be in place to 
 
 Load Balancing: Load balancing strategies should be used to distribute requests evenly across the cache nodes. This can be achieved using consistent hashing or other load balancing algorithms.
 
-## Psuedocode
-
-```
-# LRU CACHE
-class Cache:
-    def __init__(self, capacity):
-        self.capacity = capacity
-        self.cache = {}  # Key-value store
-        self.access_time = {}  # Store access time for LRU eviction policy; Alternatively we could use a linked list data structure of Nodes to maintain a queue like data structure with stale data being at the end of the linked list
-
-    def get(self, key):
-        if key in self.cache:
-            self.access_time[key] = time.time()  # Update access time
-            return self.cache[key]
-        else:
-            return None
-
-    def put(self, key, value):
-        if len(self.cache) >= self.capacity:
-            # Evict least recently used entry
-            oldest_key = min(self.access_time, key=self.access_time.get)
-            del self.cache[oldest_key]
-            del self.access_time[oldest_key]
-        self.cache[key] = value
-        self.access_time[key] = time.time()
-```
-
 ## Distributed cache strategies
 
 - Consistent Hashing (common): This is a strategy that allows cache nodes to be added or removed without significantly changing the mapping of keys to cache nodes. It minimizes the reorganization of existing keys when a node is added or removed.

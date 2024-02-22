@@ -11,35 +11,35 @@
   - Efficient for transferring over networks.
   - Flexible structure for potential future additions.
 
-```
+```json
 {
-    "stocks": [
-        {
-            "symbol": "AAPL",
-            "date": "2022-03-01",
-            "open": 174.81,
-            "high": 175.67,
-            "low": 172.85,
-            "close": 174.07,
-            "volume": 63856664
-        },
-        {
-            "symbol": "GOOGL",
-            "date": "2022-03-01",
-            "open": 2720.20,
-            "high": 2725.60,
-            "low": 2678.14,
-            "close": 2695.79,
-            "volume": 1402115
-        }
-        // More stock data here
-    ]
-  }
+  "stocks": [
+    {
+      "symbol": "AAPL",
+      "date": "2022-03-01",
+      "open": 174.81,
+      "high": 175.67,
+      "low": 172.85,
+      "close": 174.07,
+      "volume": 63856664
+    },
+    {
+      "symbol": "GOOGL",
+      "date": "2022-03-01",
+      "open": 2720.2,
+      "high": 2725.6,
+      "low": 2678.14,
+      "close": 2695.79,
+      "volume": 1402115
+    }
+    // More stock data here
+  ]
+}
 ```
 
 - Alternative: XML
 
-```
+```xml
 <stocks>
     <stock>
         <symbol>AAPL</symbol>

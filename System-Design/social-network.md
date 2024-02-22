@@ -20,7 +20,7 @@
 
   - Store user profiles (name, email, interests, etc.) in a separate table or collection.
 
-```
+```text
 class User:
     id: long # use an atomic integer/long for unique id
     name: string

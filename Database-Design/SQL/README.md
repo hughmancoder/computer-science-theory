@@ -46,32 +46,90 @@
 
 These two statements are equivalent, and it's a matter of personal preference which one you choose
 
-**Explicit Join**
+#### Explicit Join
 
-```
+```sql
 SELECT Orders.OrderID, Customers.CustomerName
 FROM Orders
 JOIN Customers ON Orders.CustomerID = Customers.CustomerID;
 ```
 
-**Implicit Join**
+#### Implicit Join
 
-```
+```sql
 SELECT Orders.OrderID, Customers.CustomerName
 FROM Orders, Customers
 WHERE Orders.CustomerID = Customers.CustomerID;
 ```
 
-### Normalized vs Denormalised databases
+## Normalized Databases
 
-Normalized Databases
+- **Focus:** Data integrity and avoiding redundancy.
+- **Structure:** Data split into multiple, smaller tables connected by relationships (like keys).
+- **Pros:**
+  - Less wasted space with minimal repetition.
+  - Easier to make changes without causing inconsistencies.
+- **Cons:**
+  - Retrieving data can be slower due to joining multiple tables.
 
-Normalization is a database design technique that reduces data redundancy and eliminates undesirable characteristics like Insertion, Update and Deletion Anomalies. Normalization rules divide larger tables into smaller tables and link them using relationships. The purpose of Normalization is to eliminate redundant (useless) data and ensure data is stored logically.
+**Example:** An online store
 
-Normalized databases are ideal when the application requires complex transactions and data integrity is critical. They are also beneficial when the data structure is complex and needs to be able to handle a variety of queries.
+- **Customer Table:** customer_id, name, address
+- **Product Table:** product_id, name, price, description
+- **Order Table:** order_id, customer_id, date
+- **Order Items Table:** order_id, product_id, quantity
 
-Denormalized Databases
+## Denormalized Databases
 
-Denormalization is a strategy used on a previously-normalized database to increase performance. In computing, denormalization is the process of trying to improve the read performance of a database, at the expense of losing some write performance, by adding redundant copies of data or by grouping data.
+- **Focus:** Faster reads and performance.
+- **Structure:** Duplicate data intentionally introduced, often by combining information from various tables.
+- **Pros:**
+  - Queries simpler and faster, often needing fewer joins.
+- **Cons:**
+  - More storage space used due to redundancy.
+  - Higher risk of data inconsistencies if updates aren't carefully managed.
 
-Denormalized databases are often used in data warehousing and big data scenarios, where read performance and analytical capabilities are more important than write performance. They are also used when the data structure is simple and the types of queries to be performed are known in advance.
+**Example:** Report generation for the online store.
+
+- **Denormalized Order Report Table:** order_id, customer_name, product_name, quantity, price, date
+
+## The Main Trade-off
+
+Normalization offers the tidiest data structure with strong integrity, while denormalization sacrifices some tidiness for speedier reading.
+
+## When to Choose
+
+- **Normalized:** If data consistency and frequent updates are top priorities, normalization is usually best. Think of systems like online stores, banking systems, etc.
+
+- **Denormalized:** If blazing-fast data retrieval for reports or analysis outweighs some redundancy, denormalization might be necessary. Examples include data warehouses and analytical systems.
+
+**Important Note:** It's often not an "either/or" situation. Modern databases frequently use a hybrid approach – core data stays normalized for integrity, and specific denormalized structures are designed for performance-critical areas.
+
+## Relational Database Design
+
+Normalization: The process of structuring your database to reduce redundancy and data anomalies. Consider aiming for at least Third Normal Form (3NF). Here's a primer on normalization forms:
+
+1NF (First Normal Form): Each cell holds a single value, and there are no repeating groups of columns.
+2NF (Second Normal Form): Meets 1NF criteria and any non-key attributes are fully dependent on the entire primary key, not just part of it.
+3NF (Third Normal Form): Meets 2NF criteria and removes any transitive dependencies (columns depending on non-key columns).
+Understand Relationships: Carefully analyze the connections between your data entities. The main relationship types are:
+
+One-to-One: A single record in one table corresponds to a single record in another.
+One-to-Many: A single record in one table can relate to multiple records in another.
+Many-to-Many: Multiple records in one table relate to multiple records in another. This often requires a junction table to implement.
+Indexing: Judiciously apply indexes to columns involved in frequent searching, sorting, and joining. Indexes speed up retrieval but can slightly slow down data changes.
+
+Referential Integrity: Enforce this through foreign key constraints. This ensures data consistency across tables (e.g., preventing an order from being created for a non-existent customer).
+
+## SQL Tips
+
+Clear Formatting: Use indentation and spacing to increase query readability.
+Specific Column Selection: Rather than SELECT \*, explicitly list the columns you need. This leads to less network traffic and improved performance.
+Efficient JOINs: Select the correct join type (INNER, OUTER, LEFT, RIGHT) depending on the desired result set.
+WHERE Clause Filtering: Employ WHERE effectively to isolate the required data.
+EXPLAIN Statement: Use EXPLAIN or its equivalent in your database system to analyze query execution plans and identify optimization opportunities.
+Additional Best Practices
+
+Thorough Documentation: Maintain organized documentation detailing the schema, table relationships, and design decisions.
+Naming Conventions: Implement a consistent naming system for tables, columns, and constraints to make your database understandable.
+Data Types: Select appropriate data types based on the nature of the data being stored to optimize storage and performance.
